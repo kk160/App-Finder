@@ -1,0 +1,359 @@
+body {
+  margin: 0px;
+  padding: 15vh 0vh 20vh 0vh;
+}
+.questionMark {
+  color: #fcbf26;
+  font-size: 20px;
+  font-weight: 500;
+}
+.questionMark::after {
+  content: "";
+  position: absolute;
+  height: 27px;
+  width: 27px;
+  background: white;
+  border: 3px solid #fcbf26;
+  border-radius: 50%;
+  z-index: -3;
+  transform: translate(-18px, 2px);
+}
+.questionPattern {
+  margin: 3vh 0vh 3vh 2vh;
+}
+.questionPlayer {
+  margin: 1vh 0vh 0vh 2vh;
+}
+.questionMark:hover {
+  text-decoration: none;
+  color: #fcbf26;
+}
+.charts {
+  opacity: 0.3;
+}
+.testStart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  z-index: 3;
+  top: 18vh;
+  left: 3.2rem;
+}
+.testText {
+  font-weight: 500;
+}
+h2 {
+  font-size: 30px;
+  font-weight: 700;
+}
+h3 {
+  font-size: 24px;
+  font-weight: 600;
+  background: white;
+  margin: 3vh 0vh 2vh 0vh;
+}
+
+.lineGenre {
+  display: block;
+  height: 1.5px;
+  width: 100%;
+  background: #2a2a2e;
+  position: absolute;
+  z-index: -11;
+  transform: translateY(5vh);
+}
+.lineFilter {
+  display: block;
+  height: 1.5px;
+  width: 100%;
+  background: #2a2a2e;
+  position: absolute;
+  z-index: -11;
+  transform: translateY(5vh);
+}
+ul {
+  padding: 0px 0px 0px 15px;
+
+  display: flex;
+  align-items: center;
+}
+ul label {
+  max-width: 20%;
+  margin: 0px 0px 0px 8px;
+}
+.range {
+  height: 80px;
+  width: 100%;
+}
+.range .field {
+  padding: 0px 2px 0px 2px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.range .field .value {
+  font-size: 18px;
+  width: 100%;
+  margin: 2px 0px 0px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.range .field input {
+  -webkit-appearance: none;
+  height: 15px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    rgb(252, 191, 38) 50%,
+    rgb(245, 245, 245) 50%
+  );
+  border-radius: 15px;
+}
+.range .field input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 28px;
+  width: 28px;
+  background: #2a2a2e;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.range .field input::-moz-range-progress {
+  height: 15px;
+  border-radius: 15px;
+  background: #fcbf26;
+}
+.range .field input::-ms-fill-lower {
+  height: 15px;
+  border-radius: 15px;
+  background: #fcbf26;
+}
+.WF {
+  background: none;
+  border: none;
+}
+.triangle {
+  font-size: 10px;
+}
+.collapsing {
+  -webkit-transition: none;
+  transition: none;
+  display: none;
+}
+.appShow {
+  max-width: 250px;
+  width: 100%;
+  max-height: 380px;
+  height: 100%;
+  background: #fcbf26;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 25px 15px 25px;
+  opacity: 1;
+}
+.appShow h4 {
+  font-size: 20px;
+  font-weight: 700;
+}
+.appShow p {
+  font-size: 14px;
+  color: white;
+  text-align: center;
+}
+.appIcon {
+  width: 100%;
+  border-radius: 40px;
+}
+.arrow {
+  transform: rotate(90deg);
+  width: 24px;
+  cursor: pointer;
+}
+.appShow.grey {
+  background: #f5f5f5;
+}
+.appShow.grey p {
+  color: black;
+}
+.appShow.grey h4 {
+  color: #fcbf26;
+}
+.titleResult {
+  font-size: 36px;
+  margin: 10vh 0vh 0vh 0vh;
+}
+.appShowBig {
+  margin: 15px 0px 0px 0px;
+  background: #fcbf26;
+  padding: 25px;
+  border-radius: 40px;
+}
+.closeApp {
+  display: none;
+}
+[type="checkbox"] {
+  opacity: 0;
+}
+[type="checkbox"] + label {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  color: #666;
+}
+[type="checkbox"] + label::before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  outline: 2px solid #fcbf26;
+  left: 0px;
+  top: 0px;
+  transform: translate(-21px, 5px);
+}
+[type="checkbox"]:checked + label::before {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  outline: 2px solid #fcbf26;
+  background: #fcbf26;
+  left: 0px;
+  top: 0px;
+  transform: translate(-21px, 5px);
+}
+.appShow h4 {
+  font-size: 20px;
+  font-weight: 700;
+}
+.appShowBig p {
+  font-size: 14px;
+  color: white;
+}
+
+.appShowBig.grey {
+  background: #f5f5f5;
+}
+.appShowBig.grey p {
+  color: black;
+}
+.appShowBig.grey h4 {
+  color: #fcbf26;
+}
+.collapse.appOpen {
+  position: absolute;
+  z-index: 3;
+  margin: 410px 0px 0px 0px;
+  max-width: 1140px;
+}
+.collapse.appOpen.secRow {
+  margin: 810px 0px 0px 10px;
+}
+.appShowBig {
+  max-width: 1140px;
+  animation-name: collapseAnimation;
+  animation-duration: 500ms;
+}
+
+@keyframes collapseAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .collapse.appOpen {
+    max-width: 920px;
+  }
+  .collapse.appOpen.appFour {
+    margin: 810px 0px 0px 10px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .collapse.appOpen {
+    max-width: 700px;
+    margin: 410px 0px 0px 10px;
+  }
+
+  .collapse.appOpen.appFour {
+    margin: 800px 0px 0px 10px;
+  }
+  .collapse.appOpen.secRow {
+    margin: 790px 0px 0px 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .row.chartContainer {
+    display: flex;
+    justify-content: center;
+  }
+  .testStart {
+    left: 31.5%;
+  }
+  .collapse.appOpen {
+    max-width: 530px;
+    margin: 420px 0px 0px 10px;
+  }
+  .collapse.appOpen.appThree {
+    margin: 820px 0px 0px 10px;
+  }
+  .collapse.appOpen.appFour {
+    margin: 820px 0px 0px 10px;
+  }
+  .collapse.appOpen.secRow {
+    margin: 1220px 0px 0px 10px;
+  }
+  .appShowBig {
+    max-width: 100%;
+  }
+  .appShowBig img {
+    max-width: 200px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .appShow {
+    margin: 0vw 0vw 0vw 20vw;
+  }
+  .collapse.appOpen {
+    position: fixed;
+    bottom: 0px;
+    height: 100vh;
+    max-width: 530px;
+    margin: 0px;
+  }
+  .appShowBig {
+    width: 100vw;
+    margin: 0px;
+    height: 100%;
+    border-radius: 0%;
+    padding: 15px 15px 15px 0px;
+  }
+  .row.content {
+    margin: 50px 0px 0px 0px;
+  }
+  .closeApp {
+    display: inline;
+    font-weight: 700;
+    font-size: 24px;
+    position: absolute;
+    right: 50px;
+    cursor: pointer;
+  }
+  .row.gamePattern {
+    margin-top: 40px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .testStart {
+    left: 29.7%;
+  }
+}

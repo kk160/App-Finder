@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./css/style.css">
+    
+
+    <title>Appfinder</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="row playerType"> 
+                    <h2>Player Types</h2>
+                    <a href="#" class="questionMark questionPlayer">?</a>
+                    
+                </div>
+                <div class="row chartContainer">
+                    <div id="chart" class="charts"></div>
+                    <div class="testStart">
+                        <p class="testText">Finde Apps, die zu dir passen</p>
+                        <button type="button" class="btn btn-dark">Test starten</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-6 col-12">
+                <div class="row">
+                    <h2>Suchfilter</h2>
+                    
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <h3>Genre</h3>
+                    <div class="lineGenre"></div>
+                </div>
+                <div class="row ">
+                    <div class="col-xl-2 col-lg-3 col-6">
+                        <button type="button" class="btn btn-block btn-light mb-2" id="btnMedi">Meditation</button>
+                    </div>
+                    <div class="col-lg-2 col-6">
+                        <button type="button" class="btn btn-block btn-light mb-2" id="btnWO">Workout</button>
+                    </div>
+                    <div class="col-lg-2 col-6">
+                        <button type="button" class="btn btn-block btn-light mb-2" id="btnTracking">Tracking</button>
+                    </div>
+                    <div class="col-lg-3 col-6">
+                        <button type="button" class="btn btn-block btn-light mb-2" id="btnHS">Health sports</button>
+                    </div>
+                    <div class="col-lg-2 col-6">
+                        <button type="button" class="btn btn-block btn-light" id="btnHIIT">HIIT</button>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-7 col-12">
+                        <div class="row d-flex justify-content-center">
+                            <h3>Preis</h3>
+                            <div class="lineFilter"></div>
+                        </div>
+                        <div class="row">
+                          <div class="range">
+                              <div class="field">
+                                  <input type="range" min="0" max="100" steps="1">
+                                  <div class="value">
+                                      <p>0 EURO</p> 
+                                      <p><span id="sliderText">100</span> EURO</p> 
+                                  </div>
+                              </div>
+                          </div>
+                    </div>
+                    </div>
+                    <div class="col-lg-5 col-12">
+                        <div class="row d-flex justify-content-center">
+                            <h3>Patterns</h3>
+                            <a href="#" class="questionMark questionPattern">?</a>
+                            <div class="lineFilter"></div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <div class="btn-group" role="group">
+                                <button id="dropdownMenuButton" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Auswählen (<span id="countText">0</span>) 
+                                </button>
+                                <div class="dropdown-menu drop" aria-labelledby="dropdownMenuButton">
+                                  <li>
+                                      <ul>
+                                        <input id="checkChallenge" type="checkbox">
+                                        <label for="checkChallenge" onclick="countChecked(document.querySelector('#checkChallenge'))">Challenge</label>
+                                    </ul>
+                                    <ul>
+                                        <input id="checkLevel" type="checkbox">
+                                        <label for="checkLevel" onclick="countChecked(document.querySelector('#checkLevel'))">Level</label>
+                                    </ul>
+                                    <ul>
+                                        <input id="checkTP" type="checkbox">
+                                        <label for="checkTP" onclick="countChecked(document.querySelector('#checkTP'))">Task Progress</label>
+                                    </ul>
+                                    <ul>
+                                        <input id="checkCU" type="checkbox">
+                                        <label for="checkCU" onclick="countChecked(document.querySelector('#checkCU'))">Content Unlocking</label>
+                                    </ul>
+                                    <ul>
+                                        <input id="checkPG" type="checkbox">
+                                        <label for="checkPG" onclick="countChecked(document.querySelector('#checkPG'))">Performance Graph</label>
+                                    </ul>
+                                    <ul>
+                                        <input id="checkBadges" type="checkbox">
+                                        <label for="checkBadges" onclick="countChecked(document.querySelector('#checkBadges'))">Badges</label>
+                                    </ul>
+                                  </li>
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div>  
+                </div>
+
+                <div class="row d-flex justify-content-end">
+                    <button for="one" class=" WF" data-toggle="collapse" data-target="#collapseOne"
+                    aria-expanded="false" aria-controls="collapseOne">weitere Filter <span class="triangle">&#x25BC</span></button>
+                    <img src="" alt="">
+                </div>
+                
+                  
+            </div>
+        </div>
+        <div id="collapseOne" class="accordion-collapse collapse result" aria-labelledby="headingTen" data-bs-parent="#accordionExample">
+            <div class="row">
+            <div class="col">
+                <div class="row d-flex justify-content-center">
+                    <h3>Preis</h3>
+                    <div class="lineGenre"></div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button id="btnGratis" class="mb-3 btn btn-block btn-warning" onclick="changeColorFilter(document.querySelector('#btnGratis'))">Kostenlos</button>
+                    </div>
+                    <div class="col">
+                        <button id="btnKosten" class="mb-3 btn btn-block btn-warning" onclick="changeColorFilter(document.querySelector('#btnKosten'))">Kostenpflichtig</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="row d-flex justify-content-center">
+                    <h3>Betriebssystem</h3>
+                    <div class="lineGenre"></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-12">
+                        <button id="btnAndroid" class="mb-3 btn btn-block btn-warning" onclick="changeColorFilter(document.querySelector('#btnAndroid'))">Android</button>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <button id="btnIOS" class="mb-3 btn btn-block btn-warning" onclick="changeColorFilter(document.querySelector('#btnIOS'))">iOS</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="row d-flex justify-content-center">
+                    <h3>Gerät</h3>
+                    <div class="lineGenre"></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-12">
+                        <button id="btnMit" class="mb-3 btn btn-block btn-light" onclick="changeColorFilter(document.querySelector('#btnMit'))">Mit</button>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <button id="btnOhne" class="mb-3 btn btn-block btn-light" onclick="changeColorFilter(document.querySelector('#btnOhne'))">Ohne</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <h2 class="titleResult">Suchergebnisse</h2>
+        </div>
+        <div class="row">
+            <div class="mt-4 col-xl-3 col-md-4 col-sm-6">
+                <div class="appShow" id="appOne">
+                    <img class="appIcon" src="./image/nt_icon.png" alt="NT icon">
+                    <h4>TECNATIVES Nt EMS</h4>
+                    <p>Conventional EMS training becomes futuristic FEMS training...</p>
+                    <img class="arrow" src="./image/iconmonstr-arrow-black.svg" alt="arrow" id="arrowOne" onclick="arrowClicked(document.querySelector('#appOne'), document.querySelector('#arrowOne'))" data-toggle="collapse" data-target="#collapseApp" aria-expanded="false" aria-controls="collapseApp">
+                </div>   
+            </div>
+            
+            <div class="collapse appOpen"  id="collapseApp">
+                <div class="appShowBig">
+                    <div class="row">
+                        <span class="closeApp" onclick="closeMiniAppCard()">X</span>
+                    </div>
+                <div class="row content">
+                    <div class="col-lg-6 col-12">
+                        <div class="row">
+                            <div class="col-lg-4 col-6">
+                                <img class="appIcon" src="./image/nt_icon.png" alt="NT icon">
+                            </div>
+                            <div class="col-lg-8 col-6">
+                                <h4>TECNATIVES Nt EMS</h4>
+                                <p>With TECNATIVES Nt, conventional EMS training becomes futuristic FEMS training.The key component is an innovative generator-sensor system. In this system, stimulations of nerves and muscle fibres are generated, measured and optimised on the basis of impulses similar to those of the human body.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                               <a href="#" role="button" class="mt-2 btn btn-dark btn-block" >App Store</a> 
+                            </div>
+                            <div class="col-6">
+                                <a href="#" role="button" class="mt-2 btn btn-dark btn-block disabled" aria-disabled="true">Google Play Store</a> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row gamePattern">
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class=" btn btn-block btn-light" disabled>Progression bar</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Points</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Tutorials</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Performance Graph</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Content Unlocking</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Level</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Torture Break</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Challenge</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>  
+        </div>
+            
+            <div class="mt-4 col-xl-3 col-md-4 col-sm-6">
+                <div class="appShow grey" id="appTwo">
+                    <img class="appIcon" src="./image/nt_icon.png" alt="NT icon">
+                    <h4>TECNATIVES Nt EMS</h4>
+                    <p>Conventional EMS training becomes futuristic FEMS training...</p>
+                    <img class="arrow" src="./image/iconmonstr-arrow-Yellow.svg" alt="arrow" id="arrowTwo" onclick = "arrowClicked(document.querySelector('#appTwo'), document.querySelector('#arrowTwo'))" data-toggle="collapse" data-target="#collapseAppTwo" aria-expanded="false" aria-controls="collapseAppTwo">
+                </div>   
+            </div>
+
+            <div class="collapse appOpen"  id="collapseAppTwo">
+                <div class="appShowBig grey">
+                    <div class="row">
+                        <span class="closeApp" onclick="closeMiniAppCard()">X</span>
+                    </div>
+                <div class="row content">
+                    <div class="col-lg-6 col-12">
+                        <div class="row">
+                            <div class="col-lg-4 col-6">
+                                <img class="appIcon" src="./image/nt_icon.png" alt="NT icon">
+                            </div>
+                            <div class="col-lg-8 col-6">
+                                <h4>TECNATIVES Nt EMS</h4>
+                                <p>With TECNATIVES Nt, conventional EMS training becomes futuristic FEMS training.The key component is an innovative generator-sensor system. In this system, stimulations of nerves and muscle fibres are generated, measured and optimised on the basis of impulses similar to those of the human body.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                               <a href="#" role="button" class="mt-2 btn btn-dark btn-block" >App Store</a> 
+                            </div>
+                            <div class="col-6">
+                                <a href="#" role="button" class="mt-2 btn btn-dark btn-block disabled" aria-disabled="true">Google Play Store</a> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row gamePattern">
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class=" btn btn-block btn-light" disabled>Progression bar</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Points</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Tutorials</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Performance Graph</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Content Unlocking</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Level</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Torture Break</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Challenge</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> 
+        </div>
+
+            <div class="mt-4 col-xl-3 col-md-4 col-sm-6">
+                <div class="appShow" id="appThree">
+                    <img class="appIcon" src="./image/nt_icon.png" alt="NT icon">
+                    <h4>TECNATIVES Nt EMS</h4>
+                    <p>Conventional EMS training becomes futuristic FEMS training...</p>
+                    <img class="arrow" src="./image/iconmonstr-arrow-black.svg" alt="arrow" id="arrowThree" onclick = "arrowClicked(document.querySelector('#appThree'), document.querySelector('#arrowThree'))" data-toggle="collapse" data-target="#collapseAppThree" aria-expanded="false" aria-controls="collapseAppThree">
+                </div>   
+            </div>
+
+            <div class="collapse appOpen appThree"  id="collapseAppThree">
+                <div class="appShowBig">
+                    <div class="row">
+                        <span class="closeApp" onclick="closeMiniAppCard()">X</span>
+                    </div>
+                <div class="row content">
+                    <div class="col-lg-6 col-12">
+                        <div class="row">
+                            <div class="col-lg-4 col-6">
+                                <img class="appIcon" src="./image/nt_icon.png" alt="NT icon">
+                            </div>
+                            <div class="col-lg-8 col-6">
+                                <h4>TECNATIVES Nt EMS</h4>
+                                <p>With TECNATIVES Nt, conventional EMS training becomes futuristic FEMS training.The key component is an innovative generator-sensor system. In this system, stimulations of nerves and muscle fibres are generated, measured and optimised on the basis of impulses similar to those of the human body.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                               <a href="#" role="button" class="mt-2 btn btn-dark btn-block" >App Store</a> 
+                            </div>
+                            <div class="col-6">
+                                <a href="#" role="button" class="mt-2 btn btn-dark btn-block disabled" aria-disabled="true">Google Play Store</a> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row gamePattern">
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class=" btn btn-block btn-light" disabled>Progression bar</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Points</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Tutorials</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Performance Graph</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Content Unlocking</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Level</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Torture Break</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Challenge</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> 
+        </div>
+
+            <div class="mt-4 col-xl-3 col-md-4 col-sm-6">
+                <div class="appShow  grey" id="appFour">
+                    <img class="appIcon" src="./image/nt_icon.png" alt="NT icon">
+                    <h4>TECNATIVES Nt EMS</h4>
+                    <p>Conventional EMS training becomes futuristic FEMS training...</p>
+                    <img class="arrow" src="./image/iconmonstr-arrow-Yellow.svg" alt="arrow" id="arrowFour" onclick = "arrowClicked(document.querySelector('#appFour'), document.querySelector('#arrowFour'))" data-toggle="collapse" data-target="#collapseAppFour" aria-expanded="false" aria-controls="collapseAppFour">
+                </div>   
+            </div>
+
+            <div class="collapse appOpen appFour"  id="collapseAppFour">
+                <div class="appShowBig grey">
+                    <div class="row">
+                        <span class="closeApp" onclick="closeMiniAppCard()">X</span>
+                    </div>
+                <div class="row content">
+                    <div class="col-lg-6 col-12">
+                        <div class="row">
+                            <div class="col-lg-4 col-6">
+                                <img class="appIcon" src="./image/nt_icon.png" alt="NT icon">
+                            </div>
+                            <div class="col-lg-8 col-6">
+                                <h4>TECNATIVES Nt EMS</h4>
+                                <p>With TECNATIVES Nt, conventional EMS training becomes futuristic FEMS training.The key component is an innovative generator-sensor system. In this system, stimulations of nerves and muscle fibres are generated, measured and optimised on the basis of impulses similar to those of the human body.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                               <a href="#" role="button" class="mt-2 btn btn-dark btn-block" >App Store</a> 
+                            </div>
+                            <div class="col-6">
+                                <a href="#" role="button" class="mt-2 btn btn-dark btn-block disabled" aria-disabled="true">Google Play Store</a> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row gamePattern">
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class=" btn btn-block btn-light" disabled>Progression bar</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Points</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Tutorials</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Performance Graph</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Content Unlocking</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Level</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Torture Break</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Challenge</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> 
+        </div>
+
+            <div class="mt-4 col-xl-3 col-md-4 col-sm-6">
+                <div class="appShow grey" id="appFive">
+                    <img class="appIcon" src="./image/nt_icon.png" alt="NT icon">
+                    <h4>TECNATIVES Nt EMS</h4>
+                    <p>Conventional EMS training becomes futuristic FEMS training...</p>
+                    <img class="arrow" src="./image/iconmonstr-arrow-Yellow.svg" alt="arrow" id="arrowFive" onclick = "arrowClicked(document.querySelector('#appFive'), document.querySelector('#arrowFive'))" data-toggle="collapse" data-target="#collapseAppFive" aria-expanded="false" aria-controls="collapseAppFive">
+                </div>   
+            </div>
+
+            <div class="collapse appOpen secRow"  id="collapseAppFive">
+                <div class="appShowBig grey">
+                    <div class="row">
+                        <span class="closeApp" onclick="closeMiniAppCard()">X</span>
+                    </div>
+                <div class="row content">
+                    <div class="col-lg-6 col-12">
+                        <div class="row">
+                            <div class="col-lg-4 col-6">
+                                <img class="appIcon" src="./image/nt_icon.png" alt="NT icon">
+                            </div>
+                            <div class="col-lg-8 col-6">
+                                <h4>TECNATIVES Nt EMS</h4>
+                                <p>With TECNATIVES Nt, conventional EMS training becomes futuristic FEMS training.The key component is an innovative generator-sensor system. In this system, stimulations of nerves and muscle fibres are generated, measured and optimised on the basis of impulses similar to those of the human body.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                               <a href="#" role="button" class="mt-2 btn btn-dark btn-block" >App Store</a> 
+                            </div>
+                            <div class="col-6">
+                                <a href="#" role="button" class="mt-2 btn btn-dark btn-block disabled" aria-disabled="true">Google Play Store</a> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row gamePattern">
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class=" btn btn-block btn-light" disabled>Progression bar</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Points</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Tutorials</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Performance Graph</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Content Unlocking</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Level</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Torture Break</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Challenge</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> 
+        </div>
+
+            <div class="mt-4 col-xl-3 col-md-4 col-sm-6">
+                <div class="appShow" id="appSix">
+                    <img class="appIcon" src="./image/nt_icon.png" alt="NT icon">
+                    <h4>TECNATIVES Nt EMS</h4>
+                    <p>Conventional EMS training becomes futuristic FEMS training...</p>
+                    <img class="arrow" src="./image/iconmonstr-arrow-black.svg" alt="arrow" id="arrowSix" onclick = "arrowClicked(document.querySelector('#appSix'), document.querySelector('#arrowSix'))" data-toggle="collapse" data-target="#collapseAppSix" aria-expanded="false" aria-controls="collapseAppSix">
+                </div>   
+            </div>
+
+            <div class="collapse appOpen secRow"  id="collapseAppSix">
+                <div class="appShowBig">
+                    <div class="row">
+                        <span class="closeApp" onclick="closeMiniAppCard()">X</span>
+                    </div>
+                <div class="row content">
+                    <div class="col-lg-6 col-12">
+                        <div class="row">
+                            <div class="col-lg-4 col-6">
+                                <img class="appIcon" src="./image/nt_icon.png" alt="NT icon">
+                            </div>
+                            <div class="col-lg-8 col-6">
+                                <h4>TECNATIVES Nt EMS</h4>
+                                <p>With TECNATIVES Nt, conventional EMS training becomes futuristic FEMS training.The key component is an innovative generator-sensor system. In this system, stimulations of nerves and muscle fibres are generated, measured and optimised on the basis of impulses similar to those of the human body.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                               <a href="#" role="button" class="mt-2 btn btn-dark btn-block" >App Store</a> 
+                            </div>
+                            <div class="col-6">
+                                <a href="#" role="button" class="mt-2 btn btn-dark btn-block disabled" aria-disabled="true">Google Play Store</a> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row gamePattern">
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class=" btn btn-block btn-light" disabled>Progression bar</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Points</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Tutorials</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Performance Graph</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Content Unlocking</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Level</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Torture Break</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Challenge</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> 
+        </div>
+
+            <div class="mt-4 col-xl-3 col-md-4 col-sm-6">
+                <div class="appShow grey" id="appSeven">
+                    <img class="appIcon" src="./image/nt_icon.png" alt="NT icon">
+                    <h4>TECNATIVES Nt EMS</h4>
+                    <p>Conventional EMS training becomes futuristic FEMS training...</p>
+                    <img class="arrow" src="./image/iconmonstr-arrow-Yellow.svg" alt="arrow" id="arrowSeven" onclick = "arrowClicked(document.querySelector('#appSeven'), document.querySelector('#arrowSeven'))" data-toggle="collapse" data-target="#collapseAppSeven" aria-expanded="false" aria-controls="collapseAppSeven">
+                </div>   
+            </div>
+
+            <div class="collapse appOpen secRow"  id="collapseAppSeven">
+                <div class="appShowBig grey">
+                    <div class="row">
+                        <span class="closeApp" onclick="closeMiniAppCard()">X</span>
+                    </div>
+                <div class="row content">
+                    <div class="col-lg-6 col-12">
+                        <div class="row">
+                            <div class="col-lg-4 col-6">
+                                <img class="appIcon" src="./image/nt_icon.png" alt="NT icon">
+                            </div>
+                            <div class="col-lg-8 col-6">
+                                <h4>TECNATIVES Nt EMS</h4>
+                                <p>With TECNATIVES Nt, conventional EMS training becomes futuristic FEMS training.The key component is an innovative generator-sensor system. In this system, stimulations of nerves and muscle fibres are generated, measured and optimised on the basis of impulses similar to those of the human body.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                               <a href="#" role="button" class="mt-2 btn btn-dark btn-block" >App Store</a> 
+                            </div>
+                            <div class="col-6">
+                                <a href="#" role="button" class="mt-2 btn btn-dark btn-block disabled" aria-disabled="true">Google Play Store</a> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row gamePattern">
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class=" btn btn-block btn-light" disabled>Progression bar</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Points</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Tutorials</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Performance Graph</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Content Unlocking</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Level</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Torture Break</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Challenge</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> 
+        </div>
+
+            <div class="mt-4 col-xl-3 col-md-4 col-sm-6">
+                <div class="appShow" id="appEight">
+                    <img class="appIcon" src="./image/nt_icon.png" alt="NT icon">
+                    <h4>TECNATIVES Nt EMS</h4>
+                    <p>Conventional EMS training becomes futuristic FEMS training...</p>
+                    <img class="arrow" src="./image/iconmonstr-arrow-black.svg" alt="arrow" id="arrowEight" onclick = "arrowClicked(document.querySelector('#appEight'), document.querySelector('#arrowEight'))" data-toggle="collapse" data-target="#collapseAppEight" aria-expanded="false" aria-controls="collapseAppEight">
+                </div>   
+            </div>
+
+            <div class="collapse appOpen secRow"  id="collapseAppEight">
+                <div class="appShowBig">
+                    <div class="row">
+                        <span class="closeApp" onclick="closeMiniAppCard()">X</span>
+                    </div>
+                <div class="row content">
+                    <div class="col-lg-6 col-12">
+                        <div class="row">
+                            <div class="col-lg-4 col-6">
+                                <img class="appIcon" src="./image/nt_icon.png" alt="NT icon">
+                            </div>
+                            <div class="col-lg-8 col-6">
+                                <h4>TECNATIVES Nt EMS</h4>
+                                <p>With TECNATIVES Nt, conventional EMS training becomes futuristic FEMS training.The key component is an innovative generator-sensor system. In this system, stimulations of nerves and muscle fibres are generated, measured and optimised on the basis of impulses similar to those of the human body.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                               <a href="#" role="button" class="mt-2 btn btn-dark btn-block" >App Store</a> 
+                            </div>
+                            <div class="col-6">
+                                <a href="#" role="button" class="mt-2 btn btn-dark btn-block disabled" aria-disabled="true">Google Play Store</a> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row gamePattern">
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class=" btn btn-block btn-light" disabled>Progression bar</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Points</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Tutorials</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Performance Graph</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Content Unlocking</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Level</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Torture Break</button>
+                            </div>
+                            <div class="col-xl-4 col-6 mb-3">
+                                <button class="btn btn-block btn-light" disabled>Challenge</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> 
+        </div>
+
+        </div>
+    </div>
+
+    
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script src="./javascript/chart.js"></script>
+        <script src="./javascript/slider.js"></script>
+        <script src="./javascript/buttonFilter.js"></script>
+        <script src="./javascript/results.js"></script>
+        <script src="./javascript/dropdown.js"></script>
+</body>
+
+</html>
